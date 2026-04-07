@@ -1,20 +1,12 @@
 import express from 'express'
 import cors from 'cors'
-//import { prisma } from "./lib/prisma.ts";
+import { prisma } from "./lib/prisma.ts";
 
 const app = express()
 const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors()) // Fechar acesso depois...
 
-app.get('/usuarios', (req, res) => {
-    let users = []
-    res.send("Ok, deu bom.")
-
-    res.status(200).json(users)
-})
-
-/*
 app.get('/usuarios', async (req, res) => {
     let users = []
     
@@ -72,9 +64,6 @@ app.delete('/usuarios/:id', async (req, res) => {
     res.status(200).json({ message: "Usuário deletado com Sucesso!"})
 })
 
-*/
-
 app.listen(port, () => {
     console.log(`Server running port ${port}`)
-    
 })
