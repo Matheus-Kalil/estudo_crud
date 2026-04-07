@@ -1,11 +1,19 @@
 import express from 'express'
 import cors from 'cors'
-import { prisma } from "./lib/prisma.ts";
+//import { prisma } from "./lib/prisma.ts";
 
 const app = express()
 app.use(express.json())
 app.use(cors()) // Fechar acesso depois...
 
+app.get('/usuarios', (req, res) => {
+    let users = []
+    res.send("Ok, deu bom.")
+
+    res.status(200).json(users)
+})
+
+/*
 app.get('/usuarios', async (req, res) => {
     let users = []
     
@@ -60,34 +68,9 @@ app.delete('/usuarios/:id', async (req, res) => {
         }
     })
 
-    res.status(200).json({ message: "Usuário deletada com Sucesso!"})
+    res.status(200).json({ message: "Usuário deletado com Sucesso!"})
 })
 
-app.listen(3000)
-
-/*
-    Criar nossa API de Usuários
-
-    - Criar um usuário
-    - Listar todos os usuários
-    - Editar um usuário
-    - Deletar um usuário
-
-    matheus_ksb
-    DBase!14
-
-    createMany()
-    createManyAndReturn()
-    deleteMany()
-    updateMany()
-    updateManyAndReturn()
-    findMany()
-
-    name: "Gojo Arche", email: "gojo.arche@jujutsu.education.tk.edu.jp", age: "15"
-    
-    {
-        "name": "Gojo Arche",
-        "email": "gojo.arche@jujutsu.education.tk.edu.jp",
-        "age": "15"
-    }
 */
+
+app.listen(3000)
