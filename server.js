@@ -3,6 +3,7 @@ import cors from 'cors'
 //import { prisma } from "./lib/prisma.ts";
 
 const app = express()
+const port = process.env.PORT || 3000
 app.use(express.json())
 app.use(cors()) // Fechar acesso depois...
 
@@ -73,4 +74,7 @@ app.delete('/usuarios/:id', async (req, res) => {
 
 */
 
-app.listen(3000)
+app.listen(port, () => {
+    console.log(`Server running port ${port}`)
+    
+})
